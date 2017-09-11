@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property: MyString
+  proj_id: MyString
+  distributing: false
+  January: 9.99
+  February: 9.99
+  March: 9.99
+  April: 9.99
+  May: 9.99
+  June: 9.99
+  July: 9.99
+  August: 9.99
+  September: 9.99
+  October: 9.99
+  November: 9.99
+  December: 9.99
+
+two:
+  property: MyString
+  proj_id: MyString
+  distributing: false
+  January: 9.99
+  February: 9.99
+  March: 9.99
+  April: 9.99
+  May: 9.99
+  June: 9.99
+  July: 9.99
+  August: 9.99
+  September: 9.99
+  October: 9.99
+  November: 9.99
+  December: 9.99

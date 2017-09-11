@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Distribution</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  <%= image_tag("Allegiancy.png", :alt => "allegiancyimg", :class => "style_image")%>
+  <hr align="left">
+  <% if current_consumer %>
+  	Signed in as <%= current_consumer.name %> | <%= link_to "Logout", '/logout' %> | <%=link_to "Distribution Schedule", 'schedules' %> | <%= link_to 'New App User', '/signup' %>
+
+  <% end %>
+
+  <%= yield %>
+
+  
+  </body>
+</html>

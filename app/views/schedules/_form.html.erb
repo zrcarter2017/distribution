@@ -1,0 +1,107 @@
+<%= form_with(model: schedule, local: true) do |form| %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :property %>
+    <%= form.text_field :property, id: :schedule_property %>
+  </div>
+
+  <div class="field">
+    <%= form.label :proj_id %>
+    <%= form.text_field :proj_id, id: :schedule_proj_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :equity %>
+    <%= form.text_field :equity, id: :schedule_equity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distributing %>
+    <%= form.check_box :distributing, id: :schedule_distributing %>
+  </div>
+
+  <div class="field">
+    <%= form.label :January %>
+    <%= form.text_field :January, id: :schedule_January %>
+  </div>
+
+  <div class="field">
+    <%= form.label :February %>
+    <%= form.text_field :February, id: :schedule_February %>
+  </div>
+
+  <div class="field">
+    <%= form.label :March %>
+    <%= form.text_field :March, id: :schedule_March %>
+  </div>
+
+  <div class="field">
+    <%= form.label :April %>
+    <%= form.text_field :April, id: :schedule_April %>
+  </div>
+
+  <div class="field">
+    <%= form.label :May %>
+    <%= form.text_field :May, id: :schedule_May %>
+  </div>
+
+  <div class="field">
+    <%= form.label :June %>
+    <%= form.text_field :June, id: :schedule_June %>
+  </div>
+
+  <div class="field">
+    <%= form.label :July %>
+    <%= form.text_field :July, id: :schedule_July %>
+  </div>
+
+  <div class="field">
+    <%= form.label :August %>
+    <%= form.text_field :August, id: :schedule_August %>
+  </div>
+
+  <div class="field">
+    <%= form.label :September %>
+    <%= form.text_field :September, id: :schedule_September %>
+  </div>
+
+  <div class="field">
+    <%= form.label :October %>
+    <%= form.text_field :October, id: :schedule_October %>
+  </div>
+
+  <div class="field">
+    <%= form.label :November %>
+    <%= form.text_field :November, id: :schedule_November %>
+  </div>
+
+  <div class="field">
+    <%= form.label :December %>
+    <%= form.text_field :December, id: :schedule_December %>
+  </div>
+
+  <div class="field">
+    <%= form.label :DistSum %>
+    <%= form.text_field :DistSum, id: :schedule_DistSum %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ROI %>
+    <%= form.text_field :ROI, id: :schedule_ROI%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

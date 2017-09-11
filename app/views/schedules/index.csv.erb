@@ -1,0 +1,6 @@
+<%#= link_to 'Download CSV list', properties_path(format: :csv) %>
+<%- headers = ['Property', 'Proj', 'Equity', 'Distributing', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'DistSum', 'ROI'] -%>
+<%= CSV.generate_line headers %>
+<%- @schedules.each do |schedule| -%>
+<%= CSV.generate_line([schedule.property, schedule.proj_id, schedule.equity, schedule.distributing, schedule.January, schedule.February, schedule.March, schedule.April, schedule.May, schedule.June, schedule.July, schedule.August, schedule.September, schedule.October, schedule.November, schedule.December, schedule.DistSum, schedule.ROI]).html_safe -%>
+<%- end -%>

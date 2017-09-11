@@ -1,0 +1,146 @@
+<style>
+
+table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        background-color:#A9A8A8;
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-left: -100px;
+
+       
+
+}
+
+th, td{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+ul {
+    border-radius: 4px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #800000;
+}
+
+li {
+    float: left;
+}
+
+li {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li :hover:not(.active) {
+    background-color: grey;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+tr:hover{background-color:#B2B1B1}
+
+
+</style>
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+ 
+
+<h1>Allegiancy Distribution Schedule</h1>
+<br>
+<ul>
+<li><%= link_to 'New Distribution', new_schedule_path, {:style=>'color:white;'} %></li>
+
+ <li><form action="/schedules.csv">
+    <input type="submit" value="Download CSV" />
+ </form></li>
+ <li style="float:right">
+  <%= form_tag import_schedules_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import CSV" %>
+<% end %></li>
+</ul>
+<br>
+
+<table id="schedules_table" class="display" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th class="absolute">Record Actions</th>
+      <th class="absolute">Property</th>
+      <th>Proj</th>
+      <th>Equity</th>
+      <th>Distributing</th>
+      <th>Jan</th>
+      <th>Feb</th>
+      <th>Mar</th>
+      <th>Apr</th>
+      <th>May</th>
+      <th>Jun</th>
+      <th>Jul</th>
+      <th>Aug</th>
+      <th>Sept</th>
+      <th>Oct</th>
+      <th>Nov</th>
+      <th>Dec</th>
+      <th>DistSum</th>
+      <th>ROI</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td class="absolute"><%= link_to 'Show', schedule %><br>
+        <%= link_to 'Edit', edit_schedule_path(schedule) %><br>
+        <%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="absolute"><%= schedule.property %></td>
+        <td><%= schedule.proj_id %></td>
+        <td><%= schedule.equity %></td>
+        <td><%= schedule.distributing %></td>
+        <td><%= schedule.January %></td>
+        <td><%= schedule.February %></td>
+        <td><%= schedule.March %></td>
+        <td><%= schedule.April %></td>
+        <td><%= schedule.May %></td>
+        <td><%= schedule.June %></td>
+        <td><%= schedule.July %></td>
+        <td><%= schedule.August %></td>
+        <td><%= schedule.September %></td>
+        <td><%= schedule.October %></td>
+        <td><%= schedule.November %></td>
+        <td><%= schedule.December %></td>
+        <td><%= schedule.DistSum = (schedule.January + schedule.February + schedule.March + schedule.April + schedule.May + schedule.June + schedule.July + schedule.August + schedule.September + schedule.October + schedule.November + schedule.December).round(2) %></td>
+        <td><%= schedule.ROI = ((schedule.DistSum/schedule.equity)*100).round(2)%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
